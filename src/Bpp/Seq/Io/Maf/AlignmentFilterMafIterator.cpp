@@ -130,7 +130,7 @@ MafBlock* AlignmentFilterMafIterator::analyseCurrentBlock_()
         } else {
           test = test && (sumGap > maxGap_);
         }
-        if (test) {
+        if (!test) { // flipped this logic to make passing windows fail
           if (pos.size() == 0) {
             pos.push_back(i - windowSize_);
             pos.push_back(i);
@@ -175,7 +175,7 @@ MafBlock* AlignmentFilterMafIterator::analyseCurrentBlock_()
       } else {
         test = test && (sumGap > maxGap_);
       }
-      if (test) {
+      if (!test) { // flipped this logic to make passing windows fail
         if (pos.size() == 0) {
           pos.push_back(i - windowSize_);
           pos.push_back(i);
